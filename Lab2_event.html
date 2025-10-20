@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <title>Tech Innovation Day</title>
+    <style>
+        body {
+            margin: 0px;
+            background: linear-gradient(to right, #0e0030, #150035);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .headerContainer {
+            padding: 1px;
+            text-align: center;
+            background: linear-gradient(to right, #7F00FF, #E100FF);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .desCard {
+            margin-top: 40px;
+            background: linear-gradient(to right, #DE1E71, #7F00FF);
+            width: 90%;
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+
+        }
+
+        .desCard p {
+            font-size: larger;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: system-ui, sans-serif;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.15);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+
+        td {
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 40%;
+            align-items: stretch;
+            width: 92%;
+            margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(to right, #DE1E71, #F5F5F5);
+            padding: 0;
+            font-family: 'Unispace', 'Courier New', Courier, monospace;
+        }
+
+        form .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        form .glass {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 60%;
+            padding: 20px;
+            background: linear-gradient(to right, rgba(222, 30, 113, 0.15), rgba(245, 245, 245, 0.05));
+            backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2),
+        }
+
+        form .glass::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            backdrop-filter: blur(1px);
+            box-shadow: inset -10px -8px 0px -11px rgba(255, 255, 255, 1),
+                inset 0px -9px 0px -8px rgba(255, 255, 255, 1);
+            opacity: 0.6;
+            z-index: -1;
+            filter: blur(1px) drop-shadow(10px 4px 6px black) brightness(115%);
+        }
+
+
+        form img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 15px 15px 0;
+            margin: 0;
+            display: block;
+        }
+
+        form h2 {
+            font-size: 56px;
+            color: white;
+            text-align: center;
+        }
+
+
+        form .glass .subhead {
+            font-size: 30px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: white;
+            text-align: left;
+        }
+
+        form label {
+            display: block;
+            color: white;
+            margin: 10px 0px 4px;
+        }
+
+        form .glass .subhead,
+        form .glass label,
+        form fieldset,
+        form .glass input[type="text"],
+        form .glass input[type="email"],
+        form .glass select,
+        form .glass textarea,
+        form .glass input[type="submit"] {
+            width: 100%;
+            max-width: 70%;
+            border-radius: 10px;
+            border: none;
+            padding: 8px;
+            border: 2px solid transparent;
+            transition: border-color .2s ease, box-shadow .2s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            margin: 40px;
+            padding: 10px 20px;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.5s;
+        }
+
+        form input[type="submit"]:hover {
+            background: #111;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form select:focus,
+        form textarea:focus {
+            border-color: #bb0953;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            font-size: 16px;
+            background: rgba(15, 15, 15, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.178);
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        select option {
+            background: #1a0033;
+            color: white;
+        }
+
+
+        form .glass input::placeholder,
+        form .glass textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        textarea {
+            min-height: 80px;
+            max-height: clamp(200px, 40vh, 500px);
+            resize: vertical;
+        }
+
+        form fieldset {
+            display: flex;
+            gap: 12px;
+            border: 0;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        form fieldset label {
+            margin-right: 10px;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 120, 170, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px rgba(222, 30, 113, 0.3);
+        }
+
+        input[type="radio"]:hover {
+            border-color: #9C4DFF;
+            box-shadow: 0 0 10px rgba(127, 0, 255, 0.6);
+        }
+
+        input[type="radio"]:checked {
+            background: radial-gradient(circle at center, #9C4DFF 45%, transparent 50%);
+            border-color: #9C4DFF;
+            box-shadow: 0 0 15px rgba(127, 0, 255, 0.8);
+        }
+
+        form .right {
+            position: relative;
+        }
+
+        form .right img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: rgb(44, 44, 44);
+            margin-top: 60px;
+            padding: 40px 30px;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            border-top: 2px solid #ff00b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="headerContainer">
+        <h1>Tech Innovation Day</h1>
+    </div>
+    <div class="container">
+        <div class="desCard">
+            <p>creativity and technology, bringing people together to share ideas and
+                explore
+                the future of innovation.</p>
+
+            <table>
+                <tr>
+                    <th>Time</th>
+                    <th>Session Title</th>
+                    <th>Speaker</th>
+                </tr>
+                <tr>
+                    <td>8:00 AM</td>
+                    <td>Web development</td>
+                    <td>Dr. ****</td>
+                </tr>
+                <tr>
+                    <td>10:00 AM</td>
+                    <td>Decision Support Systems</td>
+                    <td>Dr. ******</td>
+                </tr>
+                <tr>
+                    <td>12:00 PM</td>
+                    <td>Professional Video Editing</td>
+                    <td>Dr. *******</td>
+                </tr>
+                <tr>
+                    <td>1:00 PM</td>
+                    <td>Cybersecurity Essentials</td>
+                    <td>Dr. ******</td>
+                </tr>
+                <tr>
+                    <td>3:00 PM</td>
+                    <td>Artificial Intelligence Applications</td>
+                    <td>Dr. *******</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <form class="card">
+            <div class="left">
+                <div class="glass">
+                    <h2>Register</h2>
+
+                    <label for="userName">Name</label>
+                    <input type="text" id="userName" placeholder="Your Name">
+
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" placeholder="Example@gmail.com">
+
+                    <h3 class="subhead">Ticket</h3>
+                    <fieldset>
+                        <label><input type="radio" name="ticket" value="Student"> Student</label>
+                        <label><input type="radio" name="ticket" value="Staff"> Staff</label>
+                        <label><input type="radio" name="ticket" value="Guest"> Guest</label>
+                    </fieldset>
+
+                    <h3 class="subhead">Sessions</h3>
+                    <label for="meals">Choose Session</label>
+                    <select id="meals">
+                        <option value="small">Web development</option>
+                        <option value="medium">Decision Support Systems</option>
+                        <option value="large">Professional Video Editing</option>
+                        <option value="large">Cybersecurity Essentials</option>
+                        <option value="large">Artificial Intelligence Applications</option>
+                    </select>
+
+                    <label for="learn">What do you expect to learn?</label>
+                    <textarea id="learn"></textarea>
+
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <div class="right">
+                <img src="new_image.png" alt="">
+            </div>
+        </form>
+
+    </div>
+    <footer>Mohammed Alsultan 511 2025</footer>
+</body>
+
+</html>
